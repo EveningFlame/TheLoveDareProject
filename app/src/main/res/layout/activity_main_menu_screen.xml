@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.coconuts.ariel.thelovedareproject.MainMenuScreenActivity"
+    android:id="@+id/fragment_container">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/welcome_message"
+        android:layout_marginBottom="52dp"
+        android:textAlignment="center"
+        style="@style/EditTextStyle"
+        android:layout_above="@+id/daily_verse_button"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/daily_verse_button"
+        android:text="@string/verse_of_day"
+        style="@style/TextSizeSmall"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/daily_challenge_button"
+        android:text="@string/daily_challenge"
+        style="@style/TextSizeSmall"
+        android:layout_below="@+id/daily_verse_button"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="40dp"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/about_button"
+        android:text="@string/about_button"
+        style="@style/TextSizeSmall"
+        android:layout_below="@+id/daily_challenge_button"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="40dp"
+        />
+
+
+</RelativeLayout>
