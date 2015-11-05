@@ -13,26 +13,17 @@
         android:theme="@style/AppTheme" >
         <activity android:name=".MainLoginActivity" >
 
-            <!-- <intent-filter> -->
-            <!-- <action android:name="android.intent.action.MAIN" /> -->
+             <intent-filter>
+             <action android:name="android.intent.action.MAIN" />
 
 
-            <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
-            <!-- </intent-filter> -->
+             <category android:name="android.intent.category.LAUNCHER" />
+             </intent-filter>
         </activity>
         <activity android:name=".MainMenuScreenActivity" >
         </activity>
         <activity android:name=".AllTheDaresActivity" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-        <activity
-            android:name=".ChallengeActivity"
-            android:label="@string/title_activity_challenge"
-            android:theme="@style/AppTheme.NoActionBar" >
         </activity>
     </application>
 

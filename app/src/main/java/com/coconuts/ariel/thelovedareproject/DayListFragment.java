@@ -37,7 +37,6 @@ import java.util.List;
 public class DayListFragment extends Fragment {
 
     private List<DailyChallenges.ChallengeDares> mList;
-
     private OnDayListFragmentInteractionListner mListener;
 
     private static final String
@@ -87,6 +86,23 @@ public class DayListFragment extends Fragment {
     }
 
     @Override
+    public void onAttach(Context context) {
+        super.onAttach(context);
+        try {
+            mListener = (OnDayListFragmentInteractionListner) context;
+        } catch (ClassCastException e) {
+            throw new ClassCastException(context.toString()
+                    + " must implement OnFragmentInteractionListener");
+        }
+    }
+
+    @Override
+    public void onDetach() {
+        super.onDetach();
+        mListener = null;
+    }
+
+    @Override
     public void onStart() {
         super.onStart();
         ConnectivityManager connMgr = (ConnectivityManager)
@@ -111,9 +127,12 @@ public class DayListFragment extends Fragment {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position,
                                     long id) {
-                Toast.makeText(getActivity(), "Clicked: " + position, Toast.LENGTH_SHORT).show();
-                //mListner = (OnFragmentInteractionListner) getActivity();
-                mListener.onFragmentInteraction(position);
+                //Toast.makeText(getActivity(), "Clicked: " + position, Toast.LENGTH_SHORT).show();
+                Log.i("position", Integer.toString(position));
+                if(null != mListener) {
+                    mListener.onFragmentInteraction(position);
+                }
+
             }
         });
     }

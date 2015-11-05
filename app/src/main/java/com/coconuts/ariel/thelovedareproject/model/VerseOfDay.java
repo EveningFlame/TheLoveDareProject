@@ -31,6 +31,7 @@ public class VerseOfDay {
 
     @Override
     public String toString() {
-        return mBookName;
+        return mBookName + " " + mChapter
+                + ":" + mVerse + "\n" + mText;
     }
 }

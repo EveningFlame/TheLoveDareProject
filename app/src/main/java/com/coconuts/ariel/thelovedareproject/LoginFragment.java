@@ -60,11 +60,13 @@ public class LoginFragment extends Fragment {
         loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                Log.v("ERROR", mEmailText.getText().toString());
                 if (mEmailText.getText().length() != 0 && mPwdText.getText().length() != 0) {
+
                     url += "?email=" + mEmailText.getText().toString()
-                            + "&password=" +mPwdText.getText().toString();
-                    new  UsersWebTask().execute(url);
+                            + "&password=" + mPwdText.getText().toString();
+                    Log.e("ERROR","STRING IS: " + url);
+                    new UsersWebTask().execute(url);
                 } else {
                     Toast.makeText(getActivity(), "Email and Password must not be left blank.",
                             Toast.LENGTH_SHORT).show();
@@ -86,22 +88,6 @@ public class LoginFragment extends Fragment {
     public interface OnFragmentInteractionListner {
         public void onFragmentInteraction();
     }
-//
-//    @Override
-//    public void onStart() {
-//        super.onStart();
-//        ConnectivityManager connMgr = (ConnectivityManager)
-//                getActivity().getSystemService(Context.CONNECTIVITY_SERVICE);
-//        NetworkInfo networkInfo = connMgr.getActiveNetworkInfo();
-//        if(networkInfo != null && networkInfo.isConnected()){
-//            new UsersWebTask().execute(url);
-//        } else {
-//            Toast.makeText(getActivity(),
-//                    "No network connection available.", Toast.LENGTH_SHORT).show();
-//        }
-//
-//        //mListView = (ListView) getActivity().findViewById(R.id.users_list);
-//    }
 
     private class UsersWebTask extends AsyncTask<String, Void, String> {
 
@@ -127,7 +113,9 @@ public class LoginFragment extends Fragment {
             int len = 500;
 
             try {
+                Log.i("ERROR","STRING IS: " + myurl);
                 URL url = new URL(myurl);
+                Log.e("ERROR","STRING IS: " + url);
                 HttpURLConnection conn = (HttpURLConnection) url.openConnection();
                 conn.setReadTimeout(10000 /* milliseconds */);
                 conn.setConnectTimeout(15000 /* milliseconds */);
@@ -188,6 +176,8 @@ public class LoginFragment extends Fragment {
                     Toast.makeText(getActivity(), "Failed :" + reason,
                             Toast.LENGTH_SHORT)
                             .show();
+                    mEmailText.setText("");
+                    mPwdText.setText("");
                 }
             }
             catch(Exception e) {

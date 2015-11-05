@@ -6,7 +6,7 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:orientation="vertical">
 
         <TextView
@@ -30,7 +30,8 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/todays_d_text"/>
+            android:id="@+id/todays_d_text"
+            android:text="Today's Dare:"/>
 
         <TextView
             android:layout_width="match_parent"
