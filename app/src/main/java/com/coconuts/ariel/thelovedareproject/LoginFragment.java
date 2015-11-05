@@ -1,5 +1,10 @@
 package com.coconuts.ariel.thelovedareproject;
-
+/*
+ * Ariel McNamara
+ * TCSS 450: Mobile Apps
+ * Fall 2015
+ */
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -23,6 +28,10 @@ import java.net.URL;
 
 /**
  * A simple {@link Fragment} subclass.
+ *
+ * @author Ariel McNamara
+ * @version Fall 2015
+ *
  */
 public class LoginFragment extends Fragment {
 
@@ -35,9 +44,6 @@ public class LoginFragment extends Fragment {
     public LoginFragment() {
         // Required empty public constructor
     }
-
-    //
-    //getFragmentManager().popBackStackImmediate();
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -69,7 +75,7 @@ public class LoginFragment extends Fragment {
         registerButton.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view) {
-                Toast.makeText(getActivity(), "Clicked Register", Toast.LENGTH_SHORT).show();
+//                Toast.makeText(getActivity(), "Clicked Register", Toast.LENGTH_SHORT).show();
                 mListner = (OnFragmentInteractionListner) getActivity();
                 mListner.onFragmentInteraction();
             }
@@ -169,9 +175,14 @@ public class LoginFragment extends Fragment {
                 JSONObject jsonObject = new JSONObject(s);
                 String status = jsonObject.getString("result");
                 if (status.equalsIgnoreCase("success")) {
-                    Toast.makeText(getActivity(), "Should enter main menu now!!!",
-                            Toast.LENGTH_SHORT)
-                            .show();
+
+
+                    Intent i = new Intent(getView().getContext(), MainMenuScreenActivity.class);
+                    getActivity().startActivity(i);
+                    getActivity().finish();
+//                    Toast.makeText(getActivity(), "Should enter main menu now!!!",
+//                            Toast.LENGTH_SHORT)
+//                            .show();
                 } else {
                     String reason = jsonObject.getString("error");
                     Toast.makeText(getActivity(), "Failed :" + reason,
