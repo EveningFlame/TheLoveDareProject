@@ -52,7 +52,7 @@ public class MenuPageFragment extends Fragment {
             public void onClick(View view){
                 Intent i = new Intent(view.getContext(), AllTheDaresActivity.class);
                 getActivity().startActivity(i);
-                getActivity().finish();
+
             }
         });
 

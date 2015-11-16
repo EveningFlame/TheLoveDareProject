@@ -27,9 +27,9 @@ public class AllTheDaresActivity extends AppCompatActivity
         setContentView(R.layout.activity_all_the_dares);
 
 
-        if (savedInstanceState != null) return;
+        //if (savedInstanceState != null) return;
 
-        if (findViewById(R.id.dare_list_fragment_container) != null) {
+        //if (findViewById(R.id.dare_list_fragment_container) != null) {
             // Create an instance of ExampleFragment
             DayListFragment dayListFragment = new DayListFragment();
 
@@ -37,7 +37,7 @@ public class AllTheDaresActivity extends AppCompatActivity
             getSupportFragmentManager().beginTransaction()
                     .add(R.id.dare_list_fragment_container, dayListFragment)
                     .commit();
-        }
+        //}
     }
 
     /**

@@ -5,7 +5,6 @@
              tools:context="com.coconuts.ariel.thelovedareproject.DayListFragment">
 
     <ListView
-        xmlns:android="http://schemas.android.com/apk/res/android"
         android:id="@+id/day_list"
         android:layout_width="match_parent"
         android:layout_height="match_parent">

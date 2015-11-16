@@ -4,9 +4,9 @@
       xmlns:tools="http://schemas.android.com/tools"
       tools:context=".MainLoginActivity">
 
-      <!--<item android:action-layout="@+id/action_logout"-->
-            <!--android:title="@string/logout_text"-->
-            <!--android:orderInCategory="100"-->
-            <!--app:showAsAction="never"/>-->
+      <item android:id="@+id/action_logout"
+            android:title="@string/logout_text"
+            android:orderInCategory="100"
+            app:showAsAction="never"/>
 
 </menu>

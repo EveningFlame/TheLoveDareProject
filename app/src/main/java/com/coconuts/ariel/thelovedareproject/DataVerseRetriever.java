@@ -105,8 +105,6 @@ public class DataVerseRetriever {
             item.setVerse(verseJsonObject.getString("verse"));
             item.setText(textWithoutOddCharacters);
 
-            Log.i(TAG, "PARSED JASON IS HERE AND THIS IS THE OBJECT: " + item.getText());
-
 //[{"bookname":"Romans","chapter":"11","verse":"33","text":"!"}]
             items.add(item);
         }

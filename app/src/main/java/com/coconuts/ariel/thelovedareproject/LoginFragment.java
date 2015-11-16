@@ -186,9 +186,7 @@ public class LoginFragment extends Fragment {
                     Intent i = new Intent(getView().getContext(), MainMenuScreenActivity.class);
                     getActivity().startActivity(i);
                     getActivity().finish();
-//                    Toast.makeText(getActivity(), "Should enter main menu now!!!",
-//                            Toast.LENGTH_SHORT)
-//                            .show();
+
                 } else {
                     String reason = jsonObject.getString("error");
                     Toast.makeText(getActivity(), "Failed :" + reason,
