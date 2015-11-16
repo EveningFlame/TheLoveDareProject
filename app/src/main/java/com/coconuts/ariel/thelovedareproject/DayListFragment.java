@@ -1,6 +1,9 @@
 package com.coconuts.ariel.thelovedareproject;
-
-
+/*
+ * Ariel McNamara
+ * TCSS 450: Mobile Apps
+ * Fall 2015
+ */
 import android.content.Context;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
@@ -32,6 +35,7 @@ import java.util.List;
 
 
 /**
+ * Creates and displays a list of the days for the daily challenges
  * A simple {@link Fragment} subclass.
  */
 public class DayListFragment extends Fragment {
@@ -82,7 +86,7 @@ public class DayListFragment extends Fragment {
      * >Communicating with Other Fragments</a> for more information.
      */
     public interface OnDayListFragmentInteractionListner {
-        public void onFragmentInteraction(int day);
+        public void onListFragmentInteraction(int day);
     }
 
     @Override
@@ -130,7 +134,7 @@ public class DayListFragment extends Fragment {
                 //Toast.makeText(getActivity(), "Clicked: " + position, Toast.LENGTH_SHORT).show();
                 Log.i("position", Integer.toString(position));
                 if(null != mListener) {
-                    mListener.onFragmentInteraction(position);
+                    mListener.onListFragmentInteraction(position);
                 }
 
             }
@@ -230,6 +234,4 @@ public class DayListFragment extends Fragment {
             }
         }
     }
-
-
 }

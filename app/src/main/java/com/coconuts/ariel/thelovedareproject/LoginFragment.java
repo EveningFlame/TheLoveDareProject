@@ -4,7 +4,10 @@ package com.coconuts.ariel.thelovedareproject;
  * TCSS 450: Mobile Apps
  * Fall 2015
  */
+import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -21,12 +24,15 @@ import org.json.JSONObject;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
 import java.io.Reader;
 import java.io.UnsupportedEncodingException;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
 /**
+ * Provides the user with the ability to login to the application. If they are unable to do so,
+ * then it allows them to click a button to register.
  * A simple {@link Fragment} subclass.
  *
  * @author Ariel McNamara
@@ -40,6 +46,7 @@ public class LoginFragment extends Fragment {
     private OnFragmentInteractionListner mListner;
     EditText mEmailText;
     EditText mPwdText;
+    SharedPreferences mSharedPreferences;
 
     public LoginFragment() {
         // Required empty public constructor
@@ -89,6 +96,9 @@ public class LoginFragment extends Fragment {
         public void onFragmentInteraction();
     }
 
+    /**
+     * Checks that the users input is correct and that the user is in the database.
+     */
     private class UsersWebTask extends AsyncTask<String, Void, String> {
 
         private static final String TAG = "UsersWebTask";
@@ -164,6 +174,14 @@ public class LoginFragment extends Fragment {
                 String status = jsonObject.getString("result");
                 if (status.equalsIgnoreCase("success")) {
 
+                    if(validateAndStore()){
+                        mSharedPreferences = getActivity()
+                                .getSharedPreferences(getString(R.string.SHARED_PREFS),
+                                        Context.MODE_PRIVATE);
+                        SharedPreferences.Editor editor = mSharedPreferences.edit();
+                        editor.putBoolean(getString(R.string.LOGGEDIN), true);
+                        editor.commit();
+                    }
 
                     Intent i = new Intent(getView().getContext(), MainMenuScreenActivity.class);
                     getActivity().startActivity(i);
@@ -176,8 +194,7 @@ public class LoginFragment extends Fragment {
                     Toast.makeText(getActivity(), "Failed :" + reason,
                             Toast.LENGTH_SHORT)
                             .show();
-                    mEmailText.setText("");
-                    mPwdText.setText("");
+                    url = "http://cssgate.insttech.washington.edu/~arielm3/login.php";
                 }
             }
             catch(Exception e) {
@@ -186,7 +203,37 @@ public class LoginFragment extends Fragment {
         }
     }
 
+    private boolean validateAndStore() {
+        Activity activity = getActivity();
+        EditText email = (EditText) activity.findViewById(R.id.email_text);
+        EditText pwd = (EditText) activity.findViewById(R.id.pwd_text);
 
+        if(email.getText().length() == 0 ){
+            Toast.makeText(activity, "Please enter email", Toast.LENGTH_LONG).show();
+            email.requestFocus();
+            return false;
+        }
+        if(pwd.getText().length() == 0){
+            Toast.makeText(activity, "Please enter password.", Toast.LENGTH_LONG).show();
+            pwd.requestFocus();
+            return false;
+        }
+
+        try{
+            OutputStreamWriter outputStreamWriter = new OutputStreamWriter(
+                    activity.openFileOutput(getString(R.string.ACCT_FILE), Context.MODE_PRIVATE));
+            outputStreamWriter.write("email = " + email.getText().toString()+ ";");
+            outputStreamWriter.write("password = " + pwd.getText().toString());
+            outputStreamWriter.close();
+            Toast.makeText(activity, "Stored in File Successfully", Toast.LENGTH_LONG).show();
+
+        } catch (Exception e){
+            e.printStackTrace();
+            return false;
+        }
+
+        return true;
+    }
 
 
 }

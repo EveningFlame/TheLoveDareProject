@@ -27,6 +27,8 @@ import java.net.URL;
 
 
 /**
+ * This fragment displays edit texts for the user to register for an account in order to
+ * use this app. It uses a php to check the data base to either add in a valid input or not.
  * A simple {@link Fragment} subclass.
  *
  * @author Ariel McNamara
@@ -44,7 +46,14 @@ public class RegisterFragment extends Fragment {
         // Required empty public constructor
     }
 
-
+    /**
+     * Displays the edit text boxes and button in order to allow for user input and submission
+     *
+     * @param inflater
+     * @param container the container that holds the fragment
+     * @param savedInstanceState
+     * @return view the user is seeing
+     */
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -74,7 +83,11 @@ public class RegisterFragment extends Fragment {
     }
 
 
-
+    /**
+     * Checks with the php file that the input is an appropriate email and password.
+     * It will let the user know if either is incorrect or if they were successfully added to
+     * the database.
+     */
     private class RegisterWebTask extends AsyncTask<String, Void, String> {
         private static final String TAG = "RegisterWebTask";
 

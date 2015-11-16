@@ -17,11 +17,12 @@ import android.widget.Button;
  *
  */
 public class MainMenuScreenActivity extends AppCompatActivity implements
-        MenuPageFragment.OnFragmentInteractionListner   {
+        MenuPageFragment.OnMenuPageFragmentInteractionListner   {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        this.setTitle("Main Menu");
         setContentView(R.layout.activity_main_menu_screen);
 
         getSupportFragmentManager().beginTransaction()

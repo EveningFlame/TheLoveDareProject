@@ -1,5 +1,9 @@
 package com.coconuts.ariel.thelovedareproject;
-
+/*
+ * Ariel McNamara
+ * TCSS 450: Mobile Apps
+ * Fall 2015
+ */
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.util.Log;
@@ -12,7 +16,10 @@ import com.coconuts.ariel.thelovedareproject.model.DailyChallenges;
 
 import java.util.List;
 
-
+/**
+ * Displays all the information that the user wishes to see concerning the day, that days passage,
+ * and that day's dare.
+ */
 public class TodaysChallengeFragment extends Fragment {
     private int mDayClicked = -1;
     private static final String TAG = "TodaysChallengeFragment";
@@ -65,22 +72,5 @@ public class TodaysChallengeFragment extends Fragment {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_todays_challenge, container, false);
     }
-//    @Override
-//    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-//                             Bundle savedInstanceState) {
-//        // Inflate the layout for this fragment
-//        View v = inflater.inflate(R.layout.fragment_todays_challenge, container, false);
-//
-//        int dayClicked = getArguments().getInt("day");
-//
-//        DailyChallenges.ChallengeDares dare = mList.get(dayClicked);
-//
-//        mDayTextView = (TextView) v.findViewById(R.id.day_text);
-//        mDayTextView.setText(dare.getDayNumber());
-//
-//
-//        return v;
-//    }
-
 
 }

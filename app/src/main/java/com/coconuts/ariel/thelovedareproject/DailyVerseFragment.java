@@ -21,6 +21,7 @@ import java.io.IOException;
 import java.util.List;
 
 /**
+ * Displays the Verse of the day for the user using a TextView
  * A simple {@link Fragment} subclass.
  *
  * @author Ariel McNamara
@@ -45,35 +46,29 @@ public class DailyVerseFragment extends Fragment {
         View v = inflater.inflate(R.layout.fragment_daily_verse, container, false);
         new FetchItemsTask().execute();
 
-//        TextView tv = (TextView) getActivity().findViewById(R.id.VOTD_text);
-//        String text = verse.get(0).toString();
-//
-//        tv.setText(text);
-
         return v;
     }
 
+    /**
+     * Retrieves the actual verse by sending it to the parser.
+     */
     private class FetchItemsTask extends AsyncTask<Void, Void, Void> {
         @Override
         protected Void doInBackground(Void... params){
-//            try{
-//                String result = new DataVerseRetriever().getUrlString("http://labs.bible.org/api/?passage=votd&type=json");
-//                Log.i(TAG, "Fetched contents of URL: " + result);
-//            } catch (IOException ioe) {
-//                Log.e(TAG, "Failed to fetch URL: ", ioe);
-//            }
+
             verse = new DataVerseRetriever().fetchItems();
 
             return null;
         }
 
+        /**
+         * Displays the verse in the text view
+         * @param aVoid
+         */
         @Override
         protected void onPostExecute(Void aVoid) {
             super.onPostExecute(aVoid);
-            //        TextView tv = (TextView) getActivity().findViewById(R.id.VOTD_text);
-//        String text = verse.get(0).toString();
-//
-//        tv.setText(text);
+
             mTextView = (TextView) getActivity().findViewById(R.id.VOTD_text);
 
             mTextView.setText(verse.get(0).toString());

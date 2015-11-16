@@ -1,6 +1,11 @@
 package com.coconuts.ariel.thelovedareproject.model;
-
+/*
+ * Ariel McNamara
+ * TCSS 450: Mobile Apps
+ * Fall 2015
+ */
 /**
+ * Constructs an object for the verse of the day.
  * Created by Ariel on 11/4/2015.
  */
 public class VerseOfDay {

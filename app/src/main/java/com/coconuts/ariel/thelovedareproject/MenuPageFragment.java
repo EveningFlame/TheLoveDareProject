@@ -14,6 +14,7 @@ import android.widget.Button;
 
 
 /**
+ * Displays the main menu for the user.
  * A simple {@link Fragment} subclass.
  *
  * @author Ariel McNamara
@@ -22,7 +23,7 @@ import android.widget.Button;
  */
 public class MenuPageFragment extends Fragment {
 
-    private OnFragmentInteractionListner mListener;
+    private OnMenuPageFragmentInteractionListner mListener;
 
     public MenuPageFragment() {
         // Required empty public constructor
@@ -41,7 +42,7 @@ public class MenuPageFragment extends Fragment {
         dailyVerse.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view){
-                mListener = (OnFragmentInteractionListner) getActivity();
+                mListener = (OnMenuPageFragmentInteractionListner) getActivity();
                 mListener.onFragmentInteraction();
             }
         });
@@ -59,7 +60,7 @@ public class MenuPageFragment extends Fragment {
     }
 
 
-    public interface OnFragmentInteractionListner {
+    public interface OnMenuPageFragmentInteractionListner {
         public void onFragmentInteraction();
     }
 

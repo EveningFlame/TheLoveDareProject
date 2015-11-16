@@ -1,21 +1,29 @@
 package com.coconuts.ariel.thelovedareproject;
-
-import android.app.FragmentTransaction;
-import android.content.Intent;
-import android.os.Parcelable;
+/*
+ * Ariel McNamara
+ * TCSS 450: Mobile Apps
+ * Fall 2015
+ */
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-
-import com.coconuts.ariel.thelovedareproject.model.DailyChallenges;
-
-import java.util.List;
-
+/**
+ * Activity that displays and contains a list of all the 40 days in a list through a list fragment.
+ *
+ * @author Ariel McNamara
+ * @version Fall 2015
+ *
+ */
 public class AllTheDaresActivity extends AppCompatActivity
         implements DayListFragment.OnDayListFragmentInteractionListner{
-
+    /**
+     * Adds the fragment that will display a list of all 40 days to this activity.
+     *
+     * @param savedInstanceState
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        this.setTitle("Days of Challenge");
         setContentView(R.layout.activity_all_the_dares);
 
 
@@ -27,35 +35,18 @@ public class AllTheDaresActivity extends AppCompatActivity
 
             // Add the fragment to the 'fragment_container' FrameLayout
             getSupportFragmentManager().beginTransaction()
-                    .add(R.id.dare_list_fragment_container, dayListFragment).commit();
+                    .add(R.id.dare_list_fragment_container, dayListFragment)
+                    .commit();
         }
     }
 
-    public void onFragmentInteraction(int day) {
-//        TodaysChallengeFragment todaysChallengeFragment = new TodaysChallengeFragment();
-//        getSupportFragmentManager().beginTransaction()
-//                .replace(R.id.dare_list_fragment_container, todaysChallengeFragment)
-//                .addToBackStack(null)
-//                .commit();
+    /**
+     * Transitions to the fragment to display the information of the day that the user clicked on.
+     *
+     * @param day the day the user clicks
+     */
+    public void onListFragmentInteraction(int day) {
 
-//        Bundle bundle = new Bundle();
-//        bundle.put;
-//
-//        Intent intent = new Intent(this, ChallengeActivity.class);
-//        intent.put
-//        intent.putExtra("day", day);
-//        this.startActivity(intent);
-// Capture the student fragment from the activity layout
-//        TodaysChallengeFragment todaysChallengeFragment = (TodaysChallengeFragment)
-//                getSupportFragmentManager().findFragmentById(R.id.dare_list_fragment_container);
-//
-//        if (todaysChallengeFragment != null) {
-//            // If article frag is available, we're in two-pane layout...
-//
-//            // Call a method in the student fragment to update its content
-//            todaysChallengeFragment.updateStudentView(day);
-//
-//        } else {
             // Create fragment and give it an argument for the selected student
             // Replace whatever is in the fragment_container view with this fragment,
             // and add the transaction to the back stack so the user can navigate back
@@ -67,16 +58,6 @@ public class AllTheDaresActivity extends AppCompatActivity
                     .replace(R.id.dare_list_fragment_container, newFragment)
                     .addToBackStack(null)
                     .commit();
-//        }
 
-//
-//
-//        FragmentTransaction transaction = getFragmentManager()
-//                .beginTransaction()
-//                .replace(R.id.dare_list_fragment_container, todaysChallengeFragment)
-//                .addToBackStack(null);
-//
-//        // Commit the transaction
-//        transaction.commit();
     }
 }

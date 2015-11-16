@@ -1,5 +1,9 @@
 package com.coconuts.ariel.thelovedareproject;
-
+/*
+ * Ariel McNamara
+ * TCSS 450: Mobile Apps
+ * Fall 2015
+ */
 import android.net.Uri;
 import android.util.Log;
 import android.widget.TextView;
@@ -19,6 +23,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
+ * This class uses retrieves the JSON array from an online web service and parses it for the
+ * daily verse fragment
  * Created by Ariel on 11/4/2015.
  */
 public class DataVerseRetriever {
@@ -68,8 +74,7 @@ public class DataVerseRetriever {
 //            String url = getUrlString("http://labs.bible.org/api/?passage=votd&type=json");
             String jsonString = getUrlString(url);
             Log.i(TAG, "Received JSON: " + jsonString);
-//            JSONObject jsonBody = new JSONObject(jsonString);
-//            //parseItems(items, jsonBody);
+
             parseItems(items, jsonString);
         } catch(JSONException je) {
             Log.e(TAG, "Failed to parse JSON", je);
@@ -92,10 +97,15 @@ public class DataVerseRetriever {
             JSONObject verseJsonObject = (JSONObject) verseJsonArray.get(i);
             VerseOfDay item = new VerseOfDay();
 
+            String textWithoutOddCharacters =
+                    verseJsonObject.getString("text").replace("</b>", "").replace("<b>", "");
+
             item.setBookName(verseJsonObject.getString("bookname"));
             item.setChapter(verseJsonObject.getString("chapter"));
             item.setVerse(verseJsonObject.getString("verse"));
-            item.setText(verseJsonObject.getString("text"));
+            item.setText(textWithoutOddCharacters);
+
+            Log.i(TAG, "PARSED JASON IS HERE AND THIS IS THE OBJECT: " + item.getText());
 
 //[{"bookname":"Romans","chapter":"11","verse":"33","text":"!"}]
             items.add(item);

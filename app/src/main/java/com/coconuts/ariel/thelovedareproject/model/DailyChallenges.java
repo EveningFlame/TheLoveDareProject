@@ -1,13 +1,16 @@
 package com.coconuts.ariel.thelovedareproject.model;
-
-import android.os.Parcelable;
-
+/*
+ * Ariel McNamara
+ * TCSS 450: Mobile Apps
+ * Fall 2015
+ */
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 /**
+ * Consructs a list for the daily challenges.
  * Created by Ariel on 11/1/2015.
  */
 public class DailyChallenges {

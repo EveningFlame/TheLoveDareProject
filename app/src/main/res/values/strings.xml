@@ -1,5 +1,13 @@
 <resources>
-    <string name="app_name">TheLoveDareProject</string>
+    <string name="app_name">The Love Dare</string>
+
+    <string name="SHARED_PREFS">
+        edu.uw.tacoma.arielm3.thelovedareproject.PREFS</string>
+    <string name="LOGGEDIN">loggedin</string>
+    <string name="ACCT_FILE">edu.uw.tacoma.arielm3.theloveproject.ACCT_FILE</string>
+
+
+
     <string name="user_email">Enter Email Address</string>
     <string name="user_password">Enter Password</string>
     <string name="login_text">Login</string>
@@ -17,4 +25,5 @@
     <string name="sign_up_text">Sign Up</string>
     <string name="todays_dare">Today\'s Dare</string>
     <string name="title_activity_challenge">ChallengeActivity</string>
+    <string name="logout_text">Logout</string>
 </resources>
