@@ -22,7 +22,9 @@
         android:text="@string/verse_of_day"
         style="@style/TextSizeSmall"
         android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true"/>
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/roundbutton"
+        />
 
     <Button
         android:layout_width="wrap_content"
@@ -32,7 +34,8 @@
         style="@style/TextSizeSmall"
         android:layout_below="@+id/daily_verse_button"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="40dp"/>
+        android:layout_marginTop="40dp"
+        android:background="@drawable/roundbutton"/>
 
     <Button
         android:layout_width="wrap_content"
@@ -42,7 +45,9 @@
         style="@style/TextSizeSmall"
         android:layout_below="@+id/daily_challenge_button"
         android:layout_centerHorizontal="true"
+
         android:layout_marginTop="40dp"
+        android:background="@drawable/roundbutton"
         />
 
 </RelativeLayout>
