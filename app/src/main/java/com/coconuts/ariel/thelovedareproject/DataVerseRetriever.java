@@ -98,7 +98,8 @@ public class DataVerseRetriever {
             VerseOfDay item = new VerseOfDay();
 
             String textWithoutOddCharacters =
-                    verseJsonObject.getString("text").replace("</b>", "").replace("<b>", "");
+                    verseJsonObject.getString("text").replace("</b>", "").replace("<b>", "")
+                    .replace("&#8211;", " - ");
 
             item.setBookName(verseJsonObject.getString("bookname"));
             item.setChapter(verseJsonObject.getString("chapter"));
