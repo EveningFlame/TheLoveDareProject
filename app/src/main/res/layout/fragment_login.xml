@@ -1,65 +1,81 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
              xmlns:tools="http://schemas.android.com/tools"
              android:layout_width="match_parent"
              android:layout_height="match_parent"
              tools:context="com.coconuts.ariel.thelovedareproject.LoginFragment"
-              android:layout_gravity="center_vertical"
-              android:orientation="vertical">
+             android:orientation="vertical"
+              >
 
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/love_dare"
-        android:layout_above="@+id/email_text"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="58dp"/>
-
-    <EditText
-        android:id="@+id/email_text"
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="@string/user_email"
-        android:layout_above="@+id/pwd_text"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"/>
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:src="@drawable/love_dare"
+                android:layout_gravity="center_horizontal"
+                android:adjustViewBounds="true"/>
+
+            <EditText
+                android:id="@+id/email_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/user_email"
+                style="@style/LoginEditTextStyleSmall"
+                />
 
 
-    <EditText
-        android:id="@+id/pwd_text"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="@string/user_password"
-        android:paddingTop="@dimen/activity_vertical_margin"
-        android:layout_gravity="center_horizontal|top"
-        android:layout_centerVertical="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"/>
+            <EditText
+                android:id="@+id/pwd_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/user_password"
+                android:paddingTop="@dimen/small_edit_text_margin"
+                style="@style/LoginEditTextStyleSmall"
+                />
 
 
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:paddingTop="@dimen/activity_vertical_margin"
-        android:orientation="horizontal"
-        android:id="@+id/linearLayout"
-        android:layout_below="@+id/pwd_text"
-        android:layout_centerHorizontal="true">
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:id="@+id/linearLayout"
+                android:layout_gravity="center_horizontal">
 
 
-        <Button
-            android:id="@+id/register_button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/register_text" />
+                <Button
+                    android:id="@+id/register_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/register_text"
+                    style="@style/LoginButtonStyleSmall"
+                    android:layout_marginRight="5dp"/>
 
-        <Button
-            android:id="@+id/login_button"
-            style="?android:attr/buttonStyle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/login_text"/>
+                <Button
+                    android:id="@+id/login_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/login_text"
+                    style="@style/LoginButtonStyleSmall"
+                    android:layout_marginLeft="5dp"/>
 
-    </LinearLayout>
+            </LinearLayout>
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:src="@drawable/leaves_blowing_left_small"
+                android:adjustViewBounds="true"/>
+
+        </LinearLayout>
 
 
-</RelativeLayout>
+    </ScrollView>
+
+</LinearLayout>

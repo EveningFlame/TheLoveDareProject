@@ -7,6 +7,7 @@ package com.coconuts.ariel.thelovedareproject;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.text.method.PasswordTransformationMethod;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -62,6 +63,8 @@ public class RegisterFragment extends Fragment {
 
         mRegisterEmailText = (EditText) v.findViewById(R.id.register_email_text);
         mRegisterPwdText = (EditText) v.findViewById(R.id.register_pwd_text);
+
+        mRegisterPwdText.setTransformationMethod(new PasswordTransformationMethod());
 
         Button signUpButton = (Button) v.findViewById(R.id.sign_up_button);
 
@@ -158,17 +161,21 @@ public class RegisterFragment extends Fragment {
                 JSONObject jsonObject = new JSONObject(s);
                 String status = jsonObject.getString("result");
                 if (status.equalsIgnoreCase("success")) {
-                    Toast.makeText(getActivity(), "User successfully inserted",
+                    Toast.makeText(getActivity(), "Congragulations! You can now sign in!!",
                             Toast.LENGTH_SHORT)
                             .show();
+                    getFragmentManager().popBackStackImmediate();
                 } else {
                     String reason = jsonObject.getString("error");
                     Toast.makeText(getActivity(), "Failed :" + reason,
                             Toast.LENGTH_SHORT)
                             .show();
+                    url = "http://cssgate.insttech.washington.edu/~arielm3/registerUser.php";
                 }
                 //Pop back to other screen immediately
-                getFragmentManager().popBackStackImmediate();
+                //getFragmentManager().popBackStackImmediate();
+                mRegisterEmailText.setText("");
+                mRegisterPwdText.setText("");
             }
             catch(Exception e) {
                 Log.d(TAG, "Parsing JSON Exception " + e.getMessage());

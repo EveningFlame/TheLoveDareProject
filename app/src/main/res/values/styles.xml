@@ -3,26 +3,52 @@
     <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
         <!-- Customize your theme here. -->
-        <item name="colorPrimary">@color/colorPrimary</item>
-        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
-        <item name="colorAccent">@color/colorAccent</item>
+        <item name="colorPrimary">@color/colorPrimarySienna</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDarkSangria</item>
+        <item name="colorAccent">@color/colorAccentBrightGold</item>
     </style>
 
-    <!-- Styles for all EditText -->
-    <style name="EditTextStyle" >
+    <!-- Styles for Login Screens -->
+    <style name="LoginEditTextStyle">
+        <item name="android:typeface">serif</item>
+        <item name="android:textSize">20dp</item>
+    </style>
+
+    <style name="LoginButtonStyle"  parent="LoginEditTextStyle">
+
+        <item name="android:background">@drawable/login_round_button</item>
+    </style>
+
+    <style name="LoginEditTextStyleSmall">
+        <item name="android:typeface">serif</item>
+        <item name="android:textSize">17dp</item>
+    </style>
+
+    <style name="LoginButtonStyleSmall"  parent="LoginEditTextStyleSmall">
+        <item name="android:background">@drawable/login_round_button</item>
+    </style>
+
+    <!-- Styles for all Main Menu text view -->
+    <!-- TextViewStyle is for the Title -->
+    <style name="TextViewStyle" >
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:textSize">50sp</item>
-        <item name="android:textColor">#A50D0D</item>
+        <!--<item name="android:textColor">#A50D0D</item>-->
+        <item name="android:textColor">@color/black</item>
         <item name="android:typeface">serif</item>
+        <item name="android:background">@color/valentineRed</item>
     </style>
-
-    <style name="TextSizeSmall" parent="EditTextStyle">
+    <!-- TextSizeSmall is for the Buttons -->
+    <style name ="TextSizeSmall" parent="TextViewStyle">
         <item name="android:textStyle">bold</item>
         <item name="android:textSize">20sp</item>
         <item name="android:padding">@dimen/activity_horizontal_margin</item>
-        <item name="android:background">@android:color/black</item>
+        <item name="android:background">@color/black</item>
     </style>
+
+
+
     <style name="AppTheme.NoActionBar">
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>

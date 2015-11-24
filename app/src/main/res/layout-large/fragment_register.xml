@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="vertical"
+    >
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            >
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/cover"
+                android:layout_gravity="center"
+                />
+
+            <EditText
+                android:id="@+id/register_email_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/user_email"
+                android:paddingTop="@dimen/activity_vertical_margin"
+                style="@style/LoginEditTextStyle"
+                />
+
+
+            <EditText
+                android:id="@+id/register_pwd_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/user_password"
+                android:paddingTop="@dimen/activity_vertical_margin"
+                style="@style/LoginEditTextStyle"
+                />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:id="@+id/linearLayout"
+                android:layout_gravity="right"
+                >
+                <!--android:layout_marginLeft="50dp"-->
+                <!--android:layout_marginTop="5dp"-->
+
+
+                <Button
+                    android:id="@+id/sign_up_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/sign_up_text"
+                    style="@style/LoginButtonStyle"
+                    android:layout_marginRight="5dp"
+                    />
+
+            </LinearLayout>
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:src="@drawable/leaves_blowing_right_large"
+                android:paddingTop="20dp"
+                android:adjustViewBounds="true"/>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</LinearLayout>

@@ -59,7 +59,7 @@ public class TodaysChallengeFragment extends Fragment {
 
         DailyChallenges.ChallengeDares dayDare = DailyChallenges.DARES.get(pos);
 
-        mDayTextView.setText(dayDare.getDayNumber());
+        mDayTextView.setText(dayDare.getDayNumber() + ":");
         mLessonTextView.setText(dayDare.getLesson());
         mChapterVerseTextView.setText(dayDare.getPassage());
         mDareTextView.setText(dayDare.getDare());

@@ -16,7 +16,7 @@
     <string name="verse_of_day">Verse of Today</string>
     <string name="about_button">About</string>
     <string name="daily_challenge">Daily Challenge</string>
-    <string name="welcome_message">Welcome to the Love Dare!</string>
+    <string name="welcome_message">Welcome to the\nLove Dare!</string>
     <string name="email">Enter Email Address</string>
     <string name="password">Enter Password</string>
 
@@ -26,4 +26,5 @@
     <string name="todays_dare">Today\'s Dare</string>
     <string name="title_activity_challenge">ChallengeActivity</string>
     <string name="logout_text">Logout</string>
+    <string name="reflect_text">Reflection</string>
 </resources>

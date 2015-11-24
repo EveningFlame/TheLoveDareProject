@@ -1,8 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#8A4117</color>
-    <color name="colorPrimaryDark">#7E3817</color>
-    <color name="colorAccent">#FDD017</color>
+    <color name="colorPrimarySienna">#8A4117</color>
+    <color name="colorPrimaryDarkSangria">#7E3817</color>
+    <color name="colorAccentBrightGold">#FDD017</color>  --
+
+    <color name="black">#000000</color>
+    <color name="white">#FFFFFF</color>
+
+    <color name="valentineRed">#FF3300</color>
 </resources>
 
 <!--<color name="colorPrimary">#3F51B5</color>-->

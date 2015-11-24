@@ -1,44 +1,79 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
              xmlns:tools="http://schemas.android.com/tools"
              android:layout_width="match_parent"
              android:layout_height="match_parent"
               android:orientation="vertical"
              tools:context="com.coconuts.ariel.thelovedareproject.RegisterFragment">
 
-    <EditText
-        android:id="@+id/register_email_text"
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="@string/user_email"
-        android:layout_gravity="center_vertical"
-        android:layout_above="@+id/register_pwd_text"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"/>
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            >
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/cover"
+                android:layout_gravity="center_horizontal"
+                android:adjustViewBounds="true"
+                />
+
+            <EditText
+                android:id="@+id/register_email_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/user_email"
+                style="@style/LoginEditTextStyleSmall"
+                />
 
 
-    <EditText
-        android:id="@+id/register_pwd_text"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="@string/user_password"
-        android:paddingTop="@dimen/activity_vertical_margin"
-        android:layout_gravity="center_horizontal|top"
-        android:layout_centerVertical="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"/>
+            <EditText
+                android:id="@+id/register_pwd_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/user_password"
+                android:paddingTop="@dimen/small_edit_text_margin"
+                style="@style/LoginEditTextStyleSmall"
+                />
 
-    <Button
-        android:id="@+id/sign_up_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/sign_up_text"
-        android:layout_gravity="right"
-        android:layout_marginRight="38dp"
-        android:layout_marginEnd="38dp"
-        android:layout_marginTop="38dp"
-        android:layout_below="@+id/register_pwd_text"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"/>
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:id="@+id/linearLayout"
+                android:layout_marginLeft="10dp"
+                >
+                <!--android:layout_marginLeft="50dp"-->
+                <!--android:layout_marginTop="5dp"-->
 
 
-</RelativeLayout>
+                <Button
+                    android:id="@+id/sign_up_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/sign_up_text"
+
+                    style="@style/LoginButtonStyleSmall"
+                    android:layout_marginRight="5dp"
+                    />
+
+            </LinearLayout>
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:src="@drawable/leaves_blowing_right_large"
+                android:adjustViewBounds="true"/>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</LinearLayout>
+

@@ -23,6 +23,7 @@ import android.view.View;
 public class MainLoginActivity extends AppCompatActivity implements
         LoginFragment.OnFragmentInteractionListner  {
 
+    private static final String TAG = "information";
     SharedPreferences mSharedPreferences;
 
     @Override
@@ -82,6 +83,19 @@ public class MainLoginActivity extends AppCompatActivity implements
                 .addToBackStack(null)
                 .commit();
     }
+
+//    /**
+//     * Saving the state as data in a bundle. The keys to values of the instance must be of certain
+//     * limited types.
+//     *
+//     * @param savedInstanceState instance of structure that maps string keys to values
+//     */
+//    @Override
+//    public void onSaveInstanceState(Bundle savedInstanceState){
+//        super.onSaveInstanceState(savedInstanceState);
+//        Log.i(TAG, "onSaveInstanceState");
+//        savedInstanceState.putString(PWD,);
+//    }
 
     /**
      * Launch the the main menu activity, bound to the button,

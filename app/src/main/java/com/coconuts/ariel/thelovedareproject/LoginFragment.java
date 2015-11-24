@@ -8,9 +8,11 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.pm.ActivityInfo;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.text.method.PasswordTransformationMethod;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -60,6 +62,8 @@ public class LoginFragment extends Fragment {
 
         mEmailText = (EditText) v.findViewById(R.id.email_text);
         mPwdText = (EditText) v.findViewById(R.id.pwd_text);
+
+        mPwdText.setTransformationMethod(new PasswordTransformationMethod());
 
         Button loginButton = (Button) v.findViewById(R.id.login_button);
         Button registerButton = (Button) v.findViewById(R.id.register_button);

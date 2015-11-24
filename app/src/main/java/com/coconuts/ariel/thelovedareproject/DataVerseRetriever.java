@@ -85,15 +85,11 @@ public class DataVerseRetriever {
         return items;
     }
 
-//    private void parseItems(List<VerseOfDay> items, JSONObject jsonBody)
     private void parseItems(List<VerseOfDay> items, String s)
             throws IOException, JSONException {
 
-        //JSONArray verseJsonArray = jsonBody.getJSONArray(items.toString());
-        //JSONArray verseJsonArray = new JSONArray(jsonBody);
         JSONArray verseJsonArray = new JSONArray(s);
         for(int i = 0; i < verseJsonArray.length(); i++) {
-            //JSONObject verseJsonObject = verseJsonArray.getJSONObject(i);
             JSONObject verseJsonObject = (JSONObject) verseJsonArray.get(i);
             VerseOfDay item = new VerseOfDay();
 
