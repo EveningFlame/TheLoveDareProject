@@ -5,4 +5,6 @@
     <dimen name="fab_margin">16dp</dimen>
 
     <dimen name="small_edit_text_margin">6dp</dimen>
+
+    <dimen name="padding_around">10dp</dimen>
 </resources>

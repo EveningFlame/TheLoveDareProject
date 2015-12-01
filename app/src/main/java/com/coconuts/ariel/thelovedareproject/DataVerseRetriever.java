@@ -95,7 +95,7 @@ public class DataVerseRetriever {
 
             String textWithoutOddCharacters =
                     verseJsonObject.getString("text").replace("</b>", "").replace("<b>", "")
-                    .replace("&#8211;", " - ");
+                    .replace("&#8211;", " - ").concat("...");
 
             item.setBookName(verseJsonObject.getString("bookname"));
             item.setChapter(verseJsonObject.getString("chapter"));

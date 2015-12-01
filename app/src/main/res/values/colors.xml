@@ -7,7 +7,11 @@
     <color name="black">#000000</color>
     <color name="white">#FFFFFF</color>
 
+    <color name="constructionConeOrange">#F87431</color>
+
+    <color name="shamrock">#347C17</color>
     <color name="valentineRed">#FF3300</color>
+    <color name="fireBrick">#800517</color>
 </resources>
 
 <!--<color name="colorPrimary">#3F51B5</color>-->

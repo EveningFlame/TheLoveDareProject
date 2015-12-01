@@ -3,7 +3,8 @@
              xmlns:tools="http://schemas.android.com/tools"
              android:layout_width="match_parent"
              android:layout_height="match_parent"
-             tools:context="com.coconuts.ariel.thelovedareproject.MenuPageFragment">
+             tools:context="com.coconuts.ariel.thelovedareproject.controller.mainMenu.MenuPageFragment">
+
     <ImageView
         android:id="@+id/background"
         android:src="@drawable/fall"
@@ -24,7 +25,6 @@
             android:layout_marginBottom="52dp"
             android:layout_centerHorizontal="true"
             android:textAlignment="center"
-
             style="@style/TextViewStyle"
             android:layout_above="@+id/daily_verse_button"
             />
@@ -55,7 +55,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/about_button"
-            android:text="@string/about_button"
+            android:text="@string/about"
             style="@style/TextSizeSmall"
             android:layout_below="@+id/daily_challenge_button"
             android:layout_centerHorizontal="true"
