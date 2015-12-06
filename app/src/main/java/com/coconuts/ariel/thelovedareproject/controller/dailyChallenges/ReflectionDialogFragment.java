@@ -1,8 +1,10 @@
 package com.coconuts.ariel.thelovedareproject.controller.dailyChallenges;
 
 
+import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Dialog;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
@@ -14,10 +16,15 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.coconuts.ariel.thelovedareproject.R;
 import com.coconuts.ariel.thelovedareproject.data.ReflectionDB;
+import com.coconuts.ariel.thelovedareproject.model.ReflectionInfo;
+
+import java.io.OutputStreamWriter;
+import java.util.List;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -30,6 +37,7 @@ public class ReflectionDialogFragment extends DialogFragment {
 
     public ReflectionDialogFragment() {
         // Required empty public constructor
+
     }
 
     @NonNull
@@ -40,21 +48,21 @@ public class ReflectionDialogFragment extends DialogFragment {
         // Get the layout inflater
         LayoutInflater inflater = getActivity().getLayoutInflater();
 
-        View v = inflater.inflate(R.layout.fragment_reflection_dialog, null);
+        builder.setTitle("Time to Reflect");
 
+        mReflectionDB = new ReflectionDB(getActivity());
 
-        Bundle args = getArguments();
-        int day = args.getInt("DAY");
-        mDay = String.valueOf(day);
+//        mEditText = (EditText) v.findViewById(R.id.reflection_edit_text_view);
+//        mReflectionText = mEditText.getText().toString();
 
-        mEditText = (EditText) v.findViewById(R.id.reflection_edit_text_view);
-        mReflectionText = mEditText.getText().toString();
 
         builder.setView(inflater.inflate(R.layout.fragment_reflection_dialog, null))
             //Add the action buttons
             .setNeutralButton(R.string.share, new DialogInterface.OnClickListener() {
                 @Override
                 public void onClick(DialogInterface dialog, int which) {
+                    retrieveReflectionText();
+                    Log.e("HERE I AM ", mReflectionText);
                     Intent sendIntent = new Intent();
                     sendIntent.setAction(Intent.ACTION_SEND);
                     sendIntent.putExtra(Intent.EXTRA_TEXT, mReflectionText);
@@ -65,12 +73,22 @@ public class ReflectionDialogFragment extends DialogFragment {
             .setPositiveButton(R.string.save_text, new DialogInterface.OnClickListener() {
                 @Override
                 public void onClick(DialogInterface dialog, int which) {
-                    if (mReflectionDB.findDayReflection(mDay)) {
-                        Toast.makeText(getActivity(), "SAVED THE DAY " + mDay,
-                                Toast.LENGTH_SHORT).show();
+                    retrieveReflectionText();
+                    if (!mReflectionDB.findDayReflection(mDay)) {
+                        if (mReflectionDB.insertReflection(mDay, mReflectionText)) {
+                            Toast.makeText(getActivity(), "Saved your thoughts have been.",
+                                    Toast.LENGTH_SHORT).show();
+                        } else {
+                            Toast.makeText(getActivity(), "Day " + mDay + " failed to save.",
+                                    Toast.LENGTH_SHORT).show();
+                        }
+
                     } else {
-                        Toast.makeText(getActivity(), "UPDATED THE DAY " + mDay,
-                                Toast.LENGTH_SHORT).show();
+                        mReflectionDB.saveReflection(mDay, mReflectionText);
+
+                        Toast.makeText(getActivity(), "Updated your day " + mDay + " is.",
+                                    Toast.LENGTH_SHORT).show();
+
                     }
                 }
             })
@@ -80,10 +98,39 @@ public class ReflectionDialogFragment extends DialogFragment {
                     dismiss();
                 }
             });
-
+//        mReflectionDB.closeDB();
         return builder.create();
     }
 
+    private void retrieveReflectionText() {
+        Dialog dialogView = getDialog();
+        mEditText = (EditText) dialogView.findViewById(R.id.reflection_edit_text_view);
+        mReflectionText = mEditText.getText().toString();
 
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+
+        Dialog dialogView = getDialog();
+        Bundle args = getArguments();
+        int day = args.getInt("DAY");
+        mDay = String.valueOf(day);
+
+        List<ReflectionInfo> list =
+                AllTheDaresActivity.getReflectionList(dialogView.getContext());
+        mEditText = (EditText) dialogView.findViewById(R.id.reflection_edit_text_view);
+
+        for(int i = 0; i < list.size(); i++){
+            Log.e("HERE I AM: info", list.get(i).toString());
+
+            if(list.get(i).getDay().equals(mDay)){
+                String reflection = list.get(i).getReflection();
+
+                mEditText.setText(reflection);
+            }
+        }
+    }
 
 }

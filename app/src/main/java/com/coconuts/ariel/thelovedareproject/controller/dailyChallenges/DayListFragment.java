@@ -210,10 +210,14 @@ public class DayListFragment extends Fragment {
             try {
 
                 br = new BufferedReader(new InputStreamReader(stream));
+                //boolean isItNull = (line = br.readLine()) != null;
+                //Log.e(TAG, (Boolean.toString(isItNull)));
                 while ((line = br.readLine()) != null) {
+                    //Log.e(TAG, "The line:  " + line);
                     sb.append(line);
                 }
-                Log.e("RUDE", "The buffer is:  " + sb.toString());
+
+                //Log.e(TAG, "The buffer is:  " + sb.toString());
             } catch (IOException e) {
                 e.printStackTrace();
             } finally {

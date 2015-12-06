@@ -38,23 +38,6 @@ public class MainLoginActivity extends AppCompatActivity implements
             return;
         }
 
-//        boolean loggedIn = mSharedPreferences.getBoolean(getString(R.string.LOGGEDIN),false);
-//
-//        if(findViewById(R.id.fragment_container) != null) {
-//            FragmentTransaction fragmentTransaction =
-//                    getSupportFragmentManager().beginTransaction();
-//            if(!loggedIn){
-//                LoginFragment loginFragment = new LoginFragment();
-//                fragmentTransaction.add(R.id.fragment_container, loginFragment).commit();
-//            } else {
-//                Intent i = new Intent(this, MainMenuScreenActivity.class);
-//                startActivity(i);
-//                finish();
-//            }
-//        }
-//        setContentView(R.layout.activity_main_login);
-//        getSupportFragmentManager().beginTransaction()
-//                .add(R.id.fragment_container, new LoginFragment()).commit();
     }
     @Override
     protected void onResume(){
@@ -62,7 +45,8 @@ public class MainLoginActivity extends AppCompatActivity implements
 
         if(findViewById(R.id.fragment_container) != null){
             SharedPreferences sharedPreferences =
-                    getSharedPreferences(getString(R.string.SHARED_PREFS), MODE_PRIVATE);
+                    getSharedPreferences(getString(R.string.SHARED_PREFS),
+                            MODE_PRIVATE);
             boolean loggedIn =
                     sharedPreferences.getBoolean(getString(R.string.LOGGEDIN), false);
             if(!loggedIn) {

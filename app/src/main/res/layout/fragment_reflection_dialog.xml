@@ -5,7 +5,7 @@
              android:orientation="vertical"
              tools:context="com.coconuts.ariel.thelovedareproject.controller.mainMenu.AboutDialogFragment">
 
-    <!-- android:background="@color/colorAccentBrightGold" -->
+    <!-- android:background="@color/colorAccentBrightGold"   F83A43       #FF95B5 candy pink; slightly darker ca ff80a6-->
 
     <TextView
         android:text="@string/reflect_intro_text"
@@ -13,6 +13,7 @@
         android:layout_height="wrap_content"
         style="@style/SimpleText"
         android:textColor="@color/fireBrick"
+        android:background="#FF95B5"
         android:textAlignment="center"/>
 
 
@@ -24,8 +25,8 @@
         android:layout_height="wrap_content"
         android:padding="@dimen/padding_around"
         style="@style/SimpleText"
-        android:textColor="@color/colorAccentBrightGold"
-        android:background="@drawable/shamrock_round_image"
+        android:textColor="@color/shamrock"
+        android:background="#6AFB92"
         />
 
 </LinearLayout>

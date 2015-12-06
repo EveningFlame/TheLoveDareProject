@@ -73,7 +73,7 @@ public class DataVerseRetriever {
             Log.i(TAG, "Received URL: " + url);
 //            String url = getUrlString("http://labs.bible.org/api/?passage=votd&type=json");
             String jsonString = getUrlString(url);
-            Log.i(TAG, "Received JSON: " + jsonString);
+            //Log.i(TAG, "Received JSON: " + jsonString);
 
             parseItems(items, jsonString);
         } catch(JSONException je) {

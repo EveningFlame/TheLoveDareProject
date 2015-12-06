@@ -25,7 +25,7 @@
             android:layout_centerHorizontal="true"
             android:textAlignment="center"
 
-            style="@style/TextViewStyle"
+            style="@style/TextViewStyleMainMenu"
             android:layout_above="@+id/daily_verse_button"
             />
         <!--android:background="@drawable/the_round_button"-->

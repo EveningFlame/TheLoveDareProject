@@ -1,9 +1,9 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-             xmlns:tools="http://schemas.android.com/tools"
-             android:layout_width="match_parent"
-             android:layout_height="match_parent"
+              xmlns:tools="http://schemas.android.com/tools"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
               android:orientation="vertical"
-             tools:context="com.coconuts.ariel.thelovedareproject.controller.dailyChallenges.TodaysChallengeFragment">
+              tools:context="com.coconuts.ariel.thelovedareproject.controller.dailyChallenges.TodaysChallengeFragment">
 
     <ScrollView
         android:layout_width="match_parent"
@@ -15,7 +15,7 @@
             android:orientation="vertical">
 
             <TextView
-                style="@style/SimpleText"
+                style="@style/SimpleTextTablet"
                 android:background="@drawable/dragon_green_round"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -24,7 +24,7 @@
                 />
 
             <TextView
-                style="@style/SimpleText"
+                style="@style/SimpleTextTablet"
                 android:background="@drawable/dragon_green_round"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -32,7 +32,7 @@
                 />
 
             <TextView
-                style="@style/SimpleText"
+                style="@style/SimpleTextTablet"
                 android:background="@drawable/fairy_pink_round"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -41,7 +41,7 @@
                 />
 
             <TextView
-                style="@style/SimpleText"
+                style="@style/SimpleTextTablet"
                 android:background="@drawable/dragon_green_round"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -49,7 +49,7 @@
                 android:text="Today's Dare:"/>
 
             <TextView
-                style="@style/SimpleText"
+                style="@style/SimpleTextTablet"
                 android:background="@drawable/fairy_pink_round"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -62,7 +62,7 @@
                 android:layout_height="wrap_content"
                 android:text="@string/reflect_text"
                 android:layout_gravity="bottom|right"
-                style="@style/TextSizeSmall"
+                style="@style/TextSizeSmallTablet"
                 android:padding="@dimen/padding_around"
                 android:layout_marginTop="5dp"
                 />
@@ -70,9 +70,5 @@
         </LinearLayout>
 
     </ScrollView>
-
-
-
-
 
 </LinearLayout>

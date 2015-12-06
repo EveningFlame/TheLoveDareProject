@@ -3,6 +3,7 @@
              android:layout_width="match_parent"
              android:layout_height="match_parent"
              tools:context="com.coconuts.ariel.thelovedareproject.controller.dailyChallenges.DayListFragment"
+
             >
 
     <ListView
@@ -10,7 +11,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:textAlignment="center"
-        android:background="@color/fireBrick"
+        android:background="#CC800517"
         >
 
     </ListView>

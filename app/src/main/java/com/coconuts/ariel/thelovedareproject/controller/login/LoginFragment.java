@@ -73,12 +73,12 @@ public class LoginFragment extends Fragment {
         loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Log.v("ERROR", mEmailText.getText().toString());
+//                Log.v("ERROR", mEmailText.getText().toString());
                 if (mEmailText.getText().length() != 0 && mPwdText.getText().length() != 0) {
 
-                    url += "?email=" + mEmailText.getText().toString()
-                            + "&password=" + mPwdText.getText().toString();
-                    Log.e("ERROR","STRING IS: " + url);
+                    url += "?email=" + mEmailText.getText().toString().trim()
+                            + "&password=" + mPwdText.getText().toString().trim();
+//                    Log.e("ERROR","STRING IS: " + url);
                     new UsersWebTask().execute(url);
                 } else {
                     Toast.makeText(getActivity(), "Email and Password must not be left blank.",
@@ -90,7 +90,6 @@ public class LoginFragment extends Fragment {
         registerButton.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view) {
-//                Toast.makeText(getActivity(), "Clicked Register", Toast.LENGTH_SHORT).show();
                 mListner = (OnFragmentInteractionListner) getActivity();
                 mListner.onFragmentInteraction();
             }

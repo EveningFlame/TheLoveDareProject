@@ -4,11 +4,16 @@ package com.coconuts.ariel.thelovedareproject.controller.dailyChallenges;
  * TCSS 450: Mobile Apps
  * Fall 2015
  */
+import android.content.Context;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
 import com.coconuts.ariel.thelovedareproject.R;
 import com.coconuts.ariel.thelovedareproject.controller.mainMenu.MenuPageFragment;
+import com.coconuts.ariel.thelovedareproject.data.ReflectionDB;
+import com.coconuts.ariel.thelovedareproject.model.ReflectionInfo;
+
+import java.util.List;
 
 /**
  * Activity that displays and contains a list of all the 40 days in a list through a list fragment.
@@ -75,5 +80,12 @@ public class AllTheDaresActivity extends AppCompatActivity
         reflectionDialogFragment.setArguments(args);
 
         reflectionDialogFragment.show(getSupportFragmentManager(), getString(R.string.reflection));
+    }
+
+    public static List<ReflectionInfo>getReflectionList(Context c){
+        ReflectionDB reflectionDB = new ReflectionDB(c);
+        List<ReflectionInfo> list = reflectionDB.selectDayReflection();
+        reflectionDB.closeDB();
+        return list;
     }
 }

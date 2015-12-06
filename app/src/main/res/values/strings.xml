@@ -50,13 +50,12 @@
         \n\nCopyright: Kendrick, Stephen, and Alex Kendrick. The Love Dare .
         Nashville: B and H Group,2008. Print.
 
-        \n\nAll images were found on Google Images.
-
-        \n\nAll rights belong to the original owner. </string>
+        \n\nAll images were found on Google Images. All rights belong to the original owner. </string>
 
 
     <!-- Picture description -->
     <string name="theme">Fall Theme</string>
+    <string name="aboutTitle">About the Love Dare</string>
 
 
 </resources>

@@ -6,7 +6,7 @@
         <item name="colorPrimary">@color/colorPrimarySienna</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDarkSangria</item>
         <item name="colorAccent">@color/colorAccentBrightGold</item>
-        <item name="android:textSize">24dp</item>
+        <item name="android:textSize">25dp</item>
     </style>
 
     <!-- Styles for LOGIN SCREENS -->
@@ -31,23 +31,29 @@
 
     <!-- Styles for all MAIN MENU text view -->
     <!-- TextViewStyle is for the Title -->
-    <style name="TextViewStyle" >
+    <style name="TextViewStyleMainMenu" >
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:textSize">50dp</item>
         <!--<item name="android:textColor">#A50D0D</item>-->
         <item name="android:textColor">@color/black</item>
         <item name="android:typeface">serif</item>
-        <item name="android:background">@color/valentineRed</item>
+        <item name="android:background">@drawable/valentine_round</item>
+        <item name="android:padding">5dp</item>
+        <!--<item name="android:background">@color/valentineRed</item>-->
     </style>
 
 
     <!-- TextSizeSmall is for the Buttons -->
-    <style name ="TextSizeSmall" parent="TextViewStyle">
+    <style name ="TextSizeSmall" parent="TextViewStyleMainMenu">
         <item name="android:textStyle">bold</item>
         <item name="android:textSize">20dp</item>
         <item name="android:padding">@dimen/activity_horizontal_margin</item>
         <item name="android:background">@drawable/the_round_button</item>
+    </style>
+
+    <style name="TextSizeSmallTablet" parent="TextSizeSmall">
+        <item name="android:textSize">23dp</item>
     </style>
 
     <!-- APP THEME -->
@@ -63,7 +69,12 @@
         <item name="android:textStyle">bold</item>
         <item name="android:textSize">20dp</item>
         <item name="android:textColor">@color/black</item>
-        <item name="android:padding">@dimen/activity_horizontal_margin</item>
+        <item name="android:padding">10dp</item>
+        <item name="android:layout_marginTop">5dp</item>
+    </style>
+
+    <style name="SimpleTextTablet" parent="SimpleText">
+        <item name="android:textSize">23dp</item>
     </style>
 
     <style name="LargeSimpleText">

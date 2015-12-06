@@ -9,11 +9,18 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 
 import com.coconuts.ariel.thelovedareproject.R;
+import com.coconuts.ariel.thelovedareproject.controller.dailyChallenges.AllTheDaresActivity;
 import com.coconuts.ariel.thelovedareproject.controller.login.MainLoginActivity;
+import com.coconuts.ariel.thelovedareproject.data.ReflectionDB;
+import com.coconuts.ariel.thelovedareproject.model.ReflectionInfo;
+
+import java.util.List;
 
 /**
  *
@@ -46,7 +53,7 @@ public class MainMenuScreenActivity extends AppCompatActivity implements
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         super.onOptionsItemSelected(item);
-
+        ReflectionDB reflectionDB = new ReflectionDB(this);
         int id = item.getItemId();
 
         if(id == R.id.action_logout) {
@@ -56,6 +63,16 @@ public class MainMenuScreenActivity extends AppCompatActivity implements
             editor.putBoolean(getString(R.string.LOGGEDIN), false);
             editor.commit();
 
+
+            //delete all reflection notes made by user when they logout
+            List<ReflectionInfo> list =
+                    MainMenuScreenActivity.getReflectionList(this);
+
+            for(ReflectionInfo notes : list){
+                reflectionDB.deleteReflection(notes.getDay());
+            }
+
+            //Return to login activity
             Intent i = new Intent(this, MainLoginActivity.class);
             startActivity(i);
             finish();
@@ -77,5 +94,12 @@ public class MainMenuScreenActivity extends AppCompatActivity implements
         AboutDialogFragment aboutDialogFragment = new AboutDialogFragment();
         aboutDialogFragment.show(getSupportFragmentManager(), getString(R.string.about));
 
+    }
+
+    public static List<ReflectionInfo>getReflectionList(Context c){
+        ReflectionDB reflectionDB = new ReflectionDB(c);
+        List<ReflectionInfo> list = reflectionDB.selectDayReflection();
+        reflectionDB.closeDB();
+        return list;
     }
 }

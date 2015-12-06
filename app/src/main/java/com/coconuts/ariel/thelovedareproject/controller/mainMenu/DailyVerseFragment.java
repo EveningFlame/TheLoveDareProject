@@ -41,6 +41,7 @@ public class DailyVerseFragment extends Fragment {
 
     private List<VerseOfDay> verse;
     private TextView mTextView;
+    private Button mShare;
 
     public DailyVerseFragment() {
         // Required empty public constructor
@@ -53,10 +54,13 @@ public class DailyVerseFragment extends Fragment {
         // Inflate the layout for this fragment
         View v = inflater.inflate(R.layout.fragment_daily_verse, container, false);
 
+        mShare = (Button) v.findViewById(R.id.share_button);
+        mShare.setEnabled(false);
         ConnectivityManager connMgr = (ConnectivityManager)
                 getActivity().getSystemService(Context.CONNECTIVITY_SERVICE);
         final NetworkInfo networkInfo = connMgr.getActiveNetworkInfo();
         if (networkInfo != null && networkInfo.isConnected()) {
+            Toast.makeText(getActivity(), "Loading Content, Please Wait.", Toast.LENGTH_LONG).show();
             new FetchItemsTask().execute();
         } else {
             Toast.makeText(getActivity()
@@ -64,9 +68,9 @@ public class DailyVerseFragment extends Fragment {
                     .show();
         }
 
-        Button share = (Button) v.findViewById(R.id.share_button);
 
-        share.setOnClickListener(new View.OnClickListener() {
+
+        mShare.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
@@ -112,6 +116,7 @@ public class DailyVerseFragment extends Fragment {
             mTextView = (TextView) getActivity().findViewById(R.id.VOTD_text);
 
             mTextView.setText(verse.get(0).toString());
+            mShare.setEnabled(true);
         }
     }
 

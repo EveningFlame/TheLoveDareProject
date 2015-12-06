@@ -16,7 +16,7 @@ public class ReflectionInfo {
         return mDay;
     }
 
-    public String getPassword() {
+    public String getReflection() {
         return mReflection;
     }
 

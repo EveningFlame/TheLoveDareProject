@@ -25,8 +25,9 @@
             android:layout_marginBottom="52dp"
             android:layout_centerHorizontal="true"
             android:textAlignment="center"
-            style="@style/TextViewStyle"
+            style="@style/TextViewStyleMainMenu"
             android:layout_above="@+id/daily_verse_button"
+            android:textSize="56dp"
             />
         <!--android:background="@drawable/the_round_button"-->
         <Button
@@ -34,10 +35,11 @@
             android:layout_height="wrap_content"
             android:id="@+id/daily_verse_button"
             android:text="@string/verse_of_day"
-            style="@style/TextSizeSmall"
+            style="@style/TextSizeSmallTablet"
             android:layout_centerVertical="true"
             android:layout_centerHorizontal="true"
             android:background="@drawable/the_round_button"
+
             />
 
         <Button
@@ -45,22 +47,24 @@
             android:layout_height="wrap_content"
             android:id="@+id/daily_challenge_button"
             android:text="@string/daily_challenge"
-            style="@style/TextSizeSmall"
+            style="@style/TextSizeSmallTablet"
             android:layout_below="@+id/daily_verse_button"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="40dp"
-            android:background="@drawable/the_round_button"/>
+            android:background="@drawable/the_round_button"
+            />
 
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/about_button"
             android:text="@string/about"
-            style="@style/TextSizeSmall"
+            style="@style/TextSizeSmallTablet"
             android:layout_below="@+id/daily_challenge_button"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="40dp"
             android:background="@drawable/the_round_button"
+
             />
     </RelativeLayout>
 

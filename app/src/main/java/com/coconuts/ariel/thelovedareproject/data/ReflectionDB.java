@@ -26,9 +26,10 @@ public class ReflectionDB {
 
 
     public ReflectionDB(Context context) {
-        mReflectionDBHelper = new ReflectionDBHelper(
-                context, DB_NAME, null, DB_VERSION);
+
+        mReflectionDBHelper = new ReflectionDBHelper(context, DB_NAME, null, DB_VERSION);
         mSQLiteDatabase = mReflectionDBHelper.getWritableDatabase();
+
     }
 
     public boolean insertReflection(String day, String reflection) {
@@ -42,8 +43,10 @@ public class ReflectionDB {
 
     public boolean findDayReflection(String dayGiven) {
         Log.e("FINDReflect", dayGiven);
-        String Query = "SELECT day FROM DayReflection WHERE day =?" + dayGiven;
+        String Query = "SELECT day FROM DayReflection WHERE day=" + dayGiven;
+        Log.e("HERE I AM", Query);
         Cursor cursor = mSQLiteDatabase.rawQuery(Query, null);
+        Log.e("HERE I AM", Integer.toString(cursor.getCount()));
         if(cursor.getCount() <= 0){
             cursor.close();
             return false;
@@ -52,9 +55,8 @@ public class ReflectionDB {
         return true;
     }
 
-    public void deleteReflection() {
-        mSQLiteDatabase.execSQL("DROP TABLE IF EXISTS DayReflection");
-        //mSQLiteDatabase.delete("DayReflection", "day=?", new String[]{day});
+    public void deleteReflection(String day) {
+        mSQLiteDatabase.delete("DayReflection", "day=?", new String[]{day});
     }
 
     public void saveReflection(String day, String reflection) {
@@ -69,7 +71,7 @@ public class ReflectionDB {
         mSQLiteDatabase.close();
     }
 
-    public List<ReflectionInfo> selectUsers(){
+    public List<ReflectionInfo> selectDayReflection(){
         String[] columns = {
                 "day", "reflection"
         };
@@ -89,8 +91,8 @@ public class ReflectionDB {
         for (int i=0; i<c.getCount(); i++) {
             String day = c.getString(0);
             String reflection = c.getString(1);
-            ReflectionInfo userInfo = new ReflectionInfo(day, reflection);
-            list.add(userInfo);
+            ReflectionInfo reflectionInfo = new ReflectionInfo(day, reflection);
+            list.add(reflectionInfo);
             c.moveToNext();
         }
 
@@ -103,18 +105,21 @@ class ReflectionDBHelper extends SQLiteOpenHelper {
 
 
     private static final String CREATE_REFLECT_SQL =
-            "CREATE TABLE IF NOT EXISTS Reflection (day INT PRIMARY KEY, reflection TEXT)";
+            "CREATE TABLE IF NOT EXISTS DayReflection (day TEXT PRIMARY KEY, reflection TEXT)";
 
     private static final String DROP_REFLECT_SQL =
-            "DROP TABLE IF EXISTS Reflection";
+            "DROP TABLE IF EXISTS DayReflection";
 
     public ReflectionDBHelper(Context context, String name, SQLiteDatabase.CursorFactory factory, int version) {
         super(context, name, factory, version);
+        Log.e("HERE I AM: ", "In Constructor");
     }
 
     @Override
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
+        Log.e("HERE I AM: ", "Before Create");
         sqLiteDatabase.execSQL(CREATE_REFLECT_SQL);
+        Log.e("HERE I AM: ", "Created");
     }
 
     @Override
