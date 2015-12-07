@@ -9,7 +9,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
 import com.coconuts.ariel.thelovedareproject.R;
-import com.coconuts.ariel.thelovedareproject.controller.mainMenu.MenuPageFragment;
 import com.coconuts.ariel.thelovedareproject.data.ReflectionDB;
 import com.coconuts.ariel.thelovedareproject.model.ReflectionInfo;
 
@@ -71,6 +70,10 @@ public class AllTheDaresActivity extends AppCompatActivity
 
     }
 
+    /**
+     * Opens up the reflection dialog fragment
+     * @param dayClicked the day that the user showed
+     */
     public void onRefelectionInteraction(int dayClicked){
         ReflectionDialogFragment reflectionDialogFragment = new ReflectionDialogFragment();
 
@@ -82,6 +85,12 @@ public class AllTheDaresActivity extends AppCompatActivity
         reflectionDialogFragment.show(getSupportFragmentManager(), getString(R.string.reflection));
     }
 
+    /**
+     * Retrieves and returns the saved reflections from the phones memory
+     *
+     * @param c the context of the view in which we are in
+     * @return a list of all the daily reflections
+     */
     public static List<ReflectionInfo>getReflectionList(Context c){
         ReflectionDB reflectionDB = new ReflectionDB(c);
         List<ReflectionInfo> list = reflectionDB.selectDayReflection();

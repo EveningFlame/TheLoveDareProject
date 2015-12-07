@@ -6,15 +6,30 @@
               android:background="@color/colorAccentBrightGold"
              tools:context="com.coconuts.ariel.thelovedareproject.controller.mainMenu.AboutDialogFragment">
 
-    <TextView
-        android:layout_gravity="center_horizontal"
-        android:id="@+id/about_text_view"
-        android:text="@string/about_text_information"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:padding="@dimen/padding_around"
-        style="@style/SimpleText"
-        android:textAlignment="center"
-        />
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:layout_gravity="center_horizontal"
+                android:id="@+id/about_text_view"
+                android:text="@string/about_text_information"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/padding_around"
+                style="@style/SimpleText"
+                android:textAlignment="center"
+                />
+
+
+        </LinearLayout>
+
+    </ScrollView>
+
+
 
 </LinearLayout>

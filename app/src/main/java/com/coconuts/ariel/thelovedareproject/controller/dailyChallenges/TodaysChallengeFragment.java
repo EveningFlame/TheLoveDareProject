@@ -21,6 +21,10 @@ import java.util.List;
 /**
  * Displays all the information that the user wishes to see concerning the day, that days passage,
  * and that day's dare.
+ *
+ * @author Ariel McNamara
+ * @version Fall 2015
+ *
  */
 public class TodaysChallengeFragment extends Fragment {
     private int mDayClicked = -1;
@@ -35,6 +39,7 @@ public class TodaysChallengeFragment extends Fragment {
     public TodaysChallengeFragment() {
         // Required empty public constructor
     }
+
     @Override
     public void onStart() {
         super.onStart();
@@ -56,6 +61,11 @@ public class TodaysChallengeFragment extends Fragment {
         }
     }
 
+    /**
+     * Displays the information corresponding to the day that the user pressed on the screen.
+     *
+     * @param pos the day that the user clicked
+     */
     public void updateStudentView(int pos) {
         TextView mDayTextView = (TextView) getActivity().findViewById(R.id.day_text);
         TextView mLessonTextView = (TextView) getActivity().findViewById(R.id.lesson_text);
@@ -92,6 +102,10 @@ public class TodaysChallengeFragment extends Fragment {
         return v;
     }
 
+    /**
+     * The interface used when the reflection button is pressed. Sends in the day that the user
+     * is on.
+     */
     public interface onTodaysChallengeReflectionFragmentListenerInteraction{
         public void onRefelectionInteraction(int dayClicked);
     }

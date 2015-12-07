@@ -1,33 +1,34 @@
 package com.coconuts.ariel.thelovedareproject.controller.dailyChallenges;
-
-
-import android.app.Activity;
+/*
+ * Ariel McNamara
+ * TCSS 450: Mobile Apps
+ * Fall 2015
+ */
 import android.app.AlertDialog;
 import android.app.Dialog;
-import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
-import android.app.Fragment;
 import android.support.annotation.NonNull;
 import android.support.v4.app.DialogFragment;
 import android.util.Log;
 import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
 import android.widget.EditText;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.coconuts.ariel.thelovedareproject.R;
 import com.coconuts.ariel.thelovedareproject.data.ReflectionDB;
 import com.coconuts.ariel.thelovedareproject.model.ReflectionInfo;
 
-import java.io.OutputStreamWriter;
 import java.util.List;
 
 /**
- * A simple {@link Fragment} subclass.
+ * Dialog fragment that allows that allows the user to write their thoughts,
+ * save them, or share them.
+ *
+ * @author Ariel McNamara
+ * @version Fall 2015
+ *
  */
 public class ReflectionDialogFragment extends DialogFragment {
     private ReflectionDB mReflectionDB;
@@ -40,6 +41,11 @@ public class ReflectionDialogFragment extends DialogFragment {
 
     }
 
+    /**
+     * Creates the Dialog and has three buttons for saving, canceling, or sharing their thoughts.
+     * @param savedInstanceState
+     * @return
+     */
     @NonNull
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
@@ -51,11 +57,7 @@ public class ReflectionDialogFragment extends DialogFragment {
         builder.setTitle("Time to Reflect");
 
         mReflectionDB = new ReflectionDB(getActivity());
-
-//        mEditText = (EditText) v.findViewById(R.id.reflection_edit_text_view);
-//        mReflectionText = mEditText.getText().toString();
-
-
+        //3 buttons for saving, canceling and sharing
         builder.setView(inflater.inflate(R.layout.fragment_reflection_dialog, null))
             //Add the action buttons
             .setNeutralButton(R.string.share, new DialogInterface.OnClickListener() {
@@ -102,6 +104,9 @@ public class ReflectionDialogFragment extends DialogFragment {
         return builder.create();
     }
 
+    /**
+     * A helper method that gets the text within the edit text depending on the button pressed.
+     */
     private void retrieveReflectionText() {
         Dialog dialogView = getDialog();
         mEditText = (EditText) dialogView.findViewById(R.id.reflection_edit_text_view);
@@ -109,6 +114,10 @@ public class ReflectionDialogFragment extends DialogFragment {
 
     }
 
+    /**
+     * This method assists the dialog in knowing if there has been data saved for this day or not.
+     * And displays it if there has been.
+     */
     @Override
     public void onStart() {
         super.onStart();

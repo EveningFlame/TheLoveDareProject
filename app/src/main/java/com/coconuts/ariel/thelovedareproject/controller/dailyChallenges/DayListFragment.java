@@ -29,8 +29,6 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
-import java.io.Reader;
-import java.io.UnsupportedEncodingException;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.List;
@@ -39,9 +37,15 @@ import java.util.List;
 /**
  * Creates and displays a list of the days for the daily challenges
  * A simple {@link Fragment} subclass.
+ *
+ * @author Ariel McNamara
+ * @version Fall 2015
+ *
  */
 public class DayListFragment extends Fragment {
-
+    /**
+     * Global variables
+     */
     private List<DailyChallenges.ChallengeDares> mList;
     private OnDayListFragmentInteractionListner mListener;
 
@@ -61,14 +65,6 @@ public class DayListFragment extends Fragment {
         // Inflate the layout for this fragment
         View v = inflater.inflate(R.layout.fragment_day_list, container, false);
 
-
-//        mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-//            @Override
-//            public void onItemClick(AdapterView<?> parent, View view, int position,
-//                                    long id) {
-//                Toast.makeText(getActivity(), "Clicked: " + position, Toast.LENGTH_SHORT).show();
-//            }
-//        });
         return v;
     }
 
@@ -77,10 +73,9 @@ public class DayListFragment extends Fragment {
      * fragment to allow an interaction in this fragment to be communicated
      * to the activity and potentially other fragments contained in that
      * activity.
-     * <p/>
-     * See the Android Training lesson <a href=
-     * "http://developer.android.com/training/basics/fragments/communicating.html"
-     * >Communicating with Other Fragments</a> for more information.
+     *
+     * It provides the day that the user has clicked in order to retrieve the appropriate
+     * information.
      */
     public interface OnDayListFragmentInteractionListner {
         public void onListFragmentInteraction(int day);
@@ -146,7 +141,9 @@ public class DayListFragment extends Fragment {
         });
     }
 
-
+    /**
+     * This class retrieves and parses the data stored in the database
+     */
     private class UserWebTask extends AsyncTask<String, Void, String> {
 
         private static final String TAG = "DayListWebTask";
@@ -162,8 +159,8 @@ public class DayListFragment extends Fragment {
         }
 
         // Given a URL, establishes an HttpUrlConnection and retrieves
-// the web page content as a InputStream, which it returns as
-// a string.
+        // the web page content as a InputStream, which it returns as
+        // a string.
         private String downloadUrl(String myurl) throws IOException {
             InputStream is = null;
             // Only display the first 500 characters of the retrieved

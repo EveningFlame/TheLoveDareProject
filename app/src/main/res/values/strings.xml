@@ -9,6 +9,7 @@
 
     <!-- Login Activity and fragments -->
     <string name="user_email">Enter Email Address</string>
+    <string name="user_register_email">Enter Your Email Address</string>
     <string name="user_password">Enter Password</string>
     <string name="login_text">Login</string>
     <string name="register_text">Register</string>
@@ -17,7 +18,7 @@
     <!-- Main Menu Activity and fragments -->
     <string name="logout_text">Logout</string>
     <string name="welcome_message">Welcome to the\nLove Dare!</string>
-    <string name="verse_of_day">Verse of Today</string>
+    <string name="verse_of_day">Verse of the Day</string>
     <string name="daily_challenge">Daily Challenge</string>
     <string name="about">About</string>
 

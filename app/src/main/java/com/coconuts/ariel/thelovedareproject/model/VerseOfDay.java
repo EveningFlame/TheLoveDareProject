@@ -15,6 +15,17 @@ public class VerseOfDay {
     private String mVerse;
     private String mText;
 
+    public VerseOfDay(){
+        //blank constructor
+    }
+
+    public VerseOfDay(String bookName, String chapter, String verse, String text){
+        mBookName = bookName;
+        mChapter = chapter;
+        mVerse = verse;
+        mText = text;
+    }
+
 
     public String getBookName() {    return mBookName;    }
     public String getChapter() {    return mChapter;    }
